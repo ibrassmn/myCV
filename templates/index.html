@@ -16,15 +16,15 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>İbrahim ssmn</h1>
+      <h1>{{ home_banner_name }}</h1>
       <p>I'm <span class="typed" data-typed-items="Test Engineer Intern, ISE Student, Freelancer Scout"></span></p>
       <div class="social-links">
         <a href="https://twitter.com/ibrassmn" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="https://www.instagram.com/ibrassmn/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
         <a href="https://www.linkedin.com/in/ibrahim-%C5%9Fi%C5%9Fman-866541223/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         <a href="https://github.com/ibrassmn" target="_blank" class="github"><i class="bx bxl-github"></i>
-</a>  
-          
+</a>
+
       </div>
     </div>
   </section><!-- End Hero -->
@@ -36,8 +36,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>ABOUT</h2>
+          <p>{{ about_myself_about_section }}</p>
         </div>
 
         <div class="row">
@@ -389,9 +389,9 @@
           <div class="col-lg-8 mt-5 mt-lg-0">
 
             <form action="{% url 'contact_form' %}" method="post" role="form" class="php-email-form">
-                
-                {% csrf_token %} 
-                
+
+                {% csrf_token %}
+
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
