@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from myCV.models import GeneralSetting, ImageSetting
+from myCV.models import GeneralSetting, ImageSetting, SkillRight, SkillLeft
 
 
 # Create your views here.
@@ -22,6 +22,10 @@ def index(request):
     about_photo = ImageSetting.objects.get(name="about_photo").file
 
 
+    #Skills
+
+    skills_left =SkillLeft.objects.all().order_by("order")
+    skills_right = SkillRight.objects.all().order_by("order")
 
 
     context = {
@@ -38,6 +42,9 @@ def index(request):
         'resume_section_0': resume_section_0,
         'certificate_section': certificate_section,
         'about_photo': about_photo,
+        'skills_left': skills_left,
+        'skills_right': skills_right,
+
 
 
 

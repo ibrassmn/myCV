@@ -16,3 +16,31 @@ class ImageSettingAdmin(admin.ModelAdmin):
     list_editable = ['description', 'file']
     class Meta:
         model = ImageSetting
+
+
+@admin.register(SkillLeft)
+class SkillLeftAdmin(admin.ModelAdmin):
+    list_display = ['id', 'order', 'name', 'percentage', 'updated_date', 'created_date']
+    search_fields =['name',]
+    list_editable = ['order', 'name', 'percentage']
+    class Meta:
+        model = SkillLeft
+
+@admin.register(SkillRight)
+class SkillRightAdmin(admin.ModelAdmin):
+    list_display = ['id', 'order', 'name', 'percentage', 'updated_date', 'created_date']
+    search_fields =['name',]
+    list_editable = ['order', 'name', 'percentage']
+    class Meta:
+        model = SkillRight
+
+@admin.register(ExperienceLeft)
+class ExperienceLeftAdmin(admin.ModelAdmin):
+    list_display = ['id', 'company_name', 'job_title', 'job_location', 'start_date', 'end_date','updated_date', 'created_date']
+    search_fields =['company_name', 'job_title', 'job_location']
+    list_editable = ['company_name', 'job_title', 'job_location', 'start_date', 'end_date']
+    class Meta:
+        model = ExperienceLeft
+
+
+
