@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from myCV.models import GeneralSetting
+from myCV.models import GeneralSetting, ImageSetting
+
+
 # Create your views here.
 def index(request):
     site_title = GeneralSetting.objects.get(name="site_title").parameter
@@ -15,6 +17,9 @@ def index(request):
     resume_section_0 = GeneralSetting.objects.get(name="resume_section_0").parameter
     certificate_section = GeneralSetting.objects.get(name="certificate_section").parameter
 
+    # Images
+
+    about_photo = ImageSetting.objects.get(name="about_photo").file
 
 
 
@@ -32,11 +37,7 @@ def index(request):
         'skills_section': skills_section,
         'resume_section_0': resume_section_0,
         'certificate_section': certificate_section,
-
-
-
-
-
+        'about_photo': about_photo,
 
 
 
