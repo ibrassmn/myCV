@@ -274,3 +274,37 @@ class Certificate(AbstractModel):
         verbose_name = 'Certificate'
         verbose_name_plural = 'Certificates'
         ordering = ('name',)
+
+class Document(AbstractModel):
+    order = models.IntegerField(
+        default=0,
+        verbose_name='Order',
+    )
+    slug = models.SlugField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Slug',
+        help_text='',
+    )
+    button_text = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Button Text',
+        help_text='',
+    )
+    file = models.FileField(
+        default='',
+        verbose_name='File',
+        help_text='',
+        blank=True,
+        upload_to='documents/',
+    )
+    def str(self):
+        return f'Document : {self.slug}'
+
+    class Meta:
+        verbose_name = 'Document'
+        verbose_name_plural = 'Documents'
+        ordering = ('order',)

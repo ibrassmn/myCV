@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from myCV.models import GeneralSetting, ImageSetting, SkillRight, SkillLeft, Experience, Education,My_Community,Certificate
+from django.shortcuts import render, redirect, get_object_or_404
+from myCV.models import GeneralSetting, ImageSetting, SkillRight, SkillLeft, Experience, Education,My_Community,Certificate,Document
 
 # Create your views here.
 def index(request):
@@ -57,6 +57,8 @@ def index(request):
     flutter_name = Certificate.objects.get(name="flutter_name").parameter
     flutter_text = Certificate.objects.get(name="flutter_text").parameter
 
+    #Document
+    documents = Document.objects.all()
 
 
     context = {
@@ -94,9 +96,13 @@ def index(request):
         'cyber_101_text':cyber_101_text,
         'flutter_name' : flutter_name,
         'flutter_text': flutter_text,
-
-
+        'documents': documents,
 
     }
     return render(request, 'index.html', context=context)
 
+
+
+def redirect_urls(reques,slug):
+    doc = get_object_or_404(Document, slug=slug)
+    return redirect(doc.file.url)

@@ -69,6 +69,15 @@ class CertificateAdmin(admin.ModelAdmin):
 
     class Meta:
         model = Certificate
+@admin.register(Document)
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'order', 'slug', 'button_text', 'file', 'updated_date', 'created_date']
+    list_filter = ['slug', 'button_text']
+    list_editable = ['order', 'slug', 'button_text', 'file']
+
+    class Meta:
+        model = Document
+
 
 
 

@@ -1,16 +1,22 @@
 {% load static %}
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex flex-column justify-content-center" >
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex flex-column justify-content-center">
 
-    <nav id="navbar" class="navbar nav-menu" >
-      <ul>
-        <li ><a href="{% url 'index' %}"  class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Resume</span></a></li>
-        <li><a href="#certificates" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Certificates</span></a></li>
-        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-          
-      </ul>
+    <nav id="navbar" class="navbar nav-menu">
+        <ul>
+            <li><a href="{% url 'index' %}" class="nav-link scrollto active"><i class="bx bx-home"></i>
+                <span>Home</span></a></li>
+            <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+            <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Resume</span></a></li>
+            <li><a href="#certificates" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
+                <span>Certificates</span></a></li>
+            <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a>
+            </li>
+            {% for document in documents %}
+                <li><a href="{{ document.file.url }}" target="_blank" class="nav_link scrollto"><i
+                        class='bx bxs-cloud-download'></i><span>{{ document.button_text }}</span></a></li>
+            {% endfor %}
+        </ul>
     </nav><!-- .nav-menu -->
 
-  </header><!-- End Header -->
+</header><!-- End Header -->
